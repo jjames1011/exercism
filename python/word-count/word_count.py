@@ -1,32 +1,8 @@
+import re
+from collections import Counter
+
 def word_count(phrase):
-    words = {}
-    ranWord = ''
-
-    for char in phrase:
-        if char != ' ':
-            ranWord = ranWord + char
-
-        else:
-            if ranWord not in words:
-                words[ranWord] = 1
-                ranWord = ''
-            else:
-                words[ranWord] += 1
-                ranWord = ''
-        print(ranWord)
-
-
-
-
-
-
-
-
-    return words
-
-
-
-
-
-
-#print(word_count('hello hello hi hey whats whats 1 1 1 2 3 3'))
+    phrase = phrase.lower().replace('_',' ')
+    regex = re.compile(r'(\w+(\'\w)?)')
+    words = [x[0] for x in regex.findall(phrase)]
+    return Counter(words)
