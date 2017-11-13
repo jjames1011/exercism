@@ -1,4 +1,3 @@
-from datetime import datetime, timedelta
+from datetime import timedelta
 def add_gigasecond(birth_date):
-    gigasecond = timedelta(seconds=1000000000)
-    return birth_date + gigasecond
+    return birth_date + timedelta(seconds=1000000000)
