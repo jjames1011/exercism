@@ -1,5 +1,7 @@
 from datetime import date
+from calendar import monthrange
 def meetup_day(year, month, day_of_the_week, which):
+    print(monthrange(year,month))
     days_of_week = {'Monday':0,'Tuesday':1,'Wednesday':2,'Thursday':3, 'Friday':4,'Saturday':5,'Sunday':6}
     for day in days_of_week.keys():
         if day == day_of_the_week:
@@ -64,14 +66,14 @@ def meetup_day(year, month, day_of_the_week, which):
             return date(year,month,20)
         if date(year,month,21).weekday() == day_of_the_week:
             return date(year,month,21)
-    if which == '5th' or which == 'last':
+    if which == '5th':
         if date(year,month,29).weekday() == day_of_the_week:
             return date(year,month,29)
         if date(year,month,30).weekday() == day_of_the_week:
             return date(year,month,30)
         if date(year,month,31).weekday() == day_of_the_week:
             return date(year,month,31)
-    if which == '4th' or which == 'last':
+    if which == '4th':
         if date(year,month,22).weekday() == day_of_the_week:
             return date(year,month,22)
         if date(year,month,23).weekday() == day_of_the_week:
@@ -86,3 +88,50 @@ def meetup_day(year, month, day_of_the_week, which):
             return date(year,month,27)
         if date(year,month,28).weekday() == day_of_the_week:
             return date(year,month,28)
+    if which == 'last' and monthrange(year,month) == (6, 28):
+        if date(year,month,22).weekday() == day_of_the_week:
+            return date(year,month,22)
+        if date(year,month,23).weekday() == day_of_the_week:
+            return date(year,month,23)
+        if date(year,month,24).weekday() == day_of_the_week:
+            return date(year,month,24)
+        if date(year,month,25).weekday() == day_of_the_week:
+            return date(year,month,25)
+        if date(year,month,26).weekday() == day_of_the_week:
+            return date(year,month,26)
+        if date(year,month,27).weekday() == day_of_the_week:
+            return date(year,month,27)
+        if date(year,month,28).weekday() == day_of_the_week:
+            return date(year,month,28)
+    if which == 'last' and monthrange(year,month) == (4, 28):
+        if date(year,month,23).weekday() == day_of_the_week:
+            return date(year,month,23)
+        if date(year,month,24).weekday() == day_of_the_week:
+            return date(year,month,24)
+        if date(year,month,25).weekday() == day_of_the_week:
+            return date(year,month,25)
+        if date(year,month,26).weekday() == day_of_the_week:
+            return date(year,month,26)
+        if date(year,month,27).weekday() == day_of_the_week:
+            return date(year,month,27)
+        if date(year,month,28).weekday() == day_of_the_week:
+            return date(year,month,28)
+    if which == 'last':
+        if date(year,month,25).weekday() == day_of_the_week:
+            return date(year,month,25)
+        if date(year,month,26).weekday() == day_of_the_week:
+            return date(year,month,26)
+        if date(year,month,27).weekday() == day_of_the_week:
+            return date(year,month,27)
+        if date(year,month,28).weekday() == day_of_the_week:
+            return date(year,month,28)
+        if date(year,month,29).weekday() == day_of_the_week:
+            return date(year,month,29)
+        if date(year,month,30).weekday() == day_of_the_week:
+            return date(year,month,30)
+        if date(year,month,31).weekday() == day_of_the_week:
+            return date(year,month,31)
+
+
+
+print(meetup_day(2013, 2, 'Saturday', 'last'))
